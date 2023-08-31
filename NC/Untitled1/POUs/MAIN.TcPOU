@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{d9502940-2ecc-4413-8856-226e3cb8fc00}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fb_velocity : FB_MoveVelocity;
+	//fb_test : FB_AxisBase;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fb_velocity(axis_ref := GVL.axis_a);
+//fb_test(axis_ref := GVL.axis_a);]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="9" Count="0" />
+      <LineId Id="8" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

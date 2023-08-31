@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_MoveVelocity" Id="{ea3c0ec7-0bae-4d7a-b17e-b4823e6e4550}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MoveVelocity EXTENDS FB_AxisBase
+VAR_INPUT
+	bStartVelo		: BOOL;
+	fVelocity		: LREAL := 100; // mm/s
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR_IN_OUT
+	axis_ref : AXIS_REF;
+END_VAR
+VAR
+	m_fb_velo	: MC_MoveVelocity;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[SUPER^(_axis_ref := axis_ref);
+
+m_fb_velo(
+	Axis := axis_ref,
+	Execute := bStartVelo,
+	Velocity := fVelocity
+	);
+	
+bStartVelo := FALSE;]]></ST>
+    </Implementation>
+    <LineIds Name="FB_MoveVelocity">
+      <LineId Id="19" Count="1" />
+      <LineId Id="11" Count="3" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="17" Count="1" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
